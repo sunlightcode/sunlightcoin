@@ -15,7 +15,8 @@ Itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com
 
 Clicking on the installation will report a warning reminder, please confirm it in General-Device Management.
 
-Android installation address flash coin Android mobile wallet APK installation package has been released, welcome to download and install! Please copy the download link, download to the mobile browser to install: http://www.sunlighttown.com/?attach-download-2. Htm
+Android installation address flash coin Android mobile wallet APK installation package has been released, welcome to download and install! Please copy the download link, download to the mobile browser to install: 
+http://192.169.154.176/andriod/sunlightcoin_v1.0.apk
 
 Mobile wallet is also written on the public chain for every transfer based on the public chain, so it is possible to delay the transfer for a while.
 
@@ -52,7 +53,8 @@ itms-services:///?action=download-manifest&url=https://raw.githubusercontent.com
 
 安装后点击会报一个警告提醒，请大家到 通用—设备管理 里面确认一下即可。
 
-安卓安装地址 闪来币安卓手机钱包APK安装包已发布，欢迎大家下载安装! 请大家复制下载链接，到手机浏览器下载安装: http://www.sunlighttown.com/?attach-download-2.htm
+安卓安装地址 闪来币安卓手机钱包APK安装包已发布，欢迎大家下载安装! 请大家复制下载链接，到手机浏览器下载安装: 
+http://192.169.154.176/andriod/sunlightcoin_v1.0.apk
 
 手机钱包也是基于公链的每一笔转账都会写到公链，因此有可能转账延时一点时间。
 

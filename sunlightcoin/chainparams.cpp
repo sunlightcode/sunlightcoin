@@ -128,37 +128,6 @@ public:
         nTargetSpacing = 1 * 60;  // do new pow every 1 minutes.
         nGenesisSubsidy = 100; // 100
 
-        /**
-         * Build the genesis block. Note that the output of the genesis coinbase cannot
-         * be spent as it did not originally exist in the database.
-         * 
-         * CBlock(hash=000000000019d6, ver=1, hashPrevBlock=00000000000000, hashMerkleRoot=4a5e1e, nTime=1231006505, nBits=1d00ffff, nNonce=2083236893, vtx=1)
-         *   CTransaction(hash=4a5e1e, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-         *     CTxIn(COutPoint(000000, -1), coinbase 04ffff001d0104455468652054696d65732030332f4a616e2f32303039204368616e63656c6c6f72206f6e206272696e6b206f66207365636f6e64206261696c6f757420666f722062616e6b73)
-         *     CTxOut(nValue=50.00000000, scriptPubKey=0x5F1DF16B2B704C8A578D0B)
-         *   vMerkleTree: 4a5e1e
-         */
-
-        // HarryWu, generate genesis block by genesis.py as following:
-        //
-        // localhost genesis # python genesis.py \
-        //                            -t $(date +%s) \
-        //                            -z "shanghai stock index closed at 2343.57, on 24th Sept., 2014" \
-        //                            -a SHA256 \
-        //                            -p 049e02fa9aa3c19a3b112a58bab503c5caf797972f5cfe1006275aa5485a01b48f9f648bc5380ee1e82dc6f474c8e0f7e2f6bbd0de9355f92496e3ea327ccb19cc \
-        //                            -v 10000000000
-        // Raw block data: 04ffff001d01043b7368616e676861692073746f636b20696e64657820636c6f73656420617420323334332e35372c206f6e203234746820536570742e2c2032303134
-        // algorithm: SHA256
-        // merkle hash: 1c395aad7fab156523a095a869d3fcdf3249a8a97c8d7337adb4f33d826da32b
-        // pszTimestamp: shanghai stock index closed at 2343.57, on 24th Sept., 2014
-        // pubkey: 049e02fa9aa3c19a3b112a58bab503c5caf797972f5cfe1006275aa5485a01b48f9f648bc5380ee1e82dc6f474c8e0f7e2f6bbd0de9355f92496e3ea327ccb19cc
-        // time: 1411650667
-        // bits: 0x1d00ffff
-        // Searching for genesis hash..
-        //
-        // nonce: 1456993276
-        // genesis hash: 000000004df0288b461e17d9a20e557fd296861c604f1944eb9e2cca866af0a5
-
         const char* pszTimestamp = "SunlightCoin release date is February 12, 2018. Witnesses are Colin, Diking, J.J. Wang"; // "shanghai stock index closed at 2343.57, on 24th Sept., 2014";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
@@ -178,12 +147,6 @@ public:
         assert(hashGenesisBlock == uint256S("0x00000000f1247b63db9406bdbaaa77cc9d536619148949c2a1232c33afb3767b"));
         assert(genesis.hashMerkleRoot == uint256S("0x2fe160f7edf1a50facb50217a39ff6969c9e335059d2f9ff4f00e0be2f1f35a2")); // 7bf229f629a6666596c1ce57117c28d1d29299e8a5303347929bd70847c49adb
 
-        //vSeeds.push_back(CDNSSeedData("sunlightcoin.sipa.be", "seed.sunlightcoin.sipa.be"));
-        //vSeeds.push_back(CDNSSeedData("bluematt.me", "dnsseed.bluematt.me"));
-        //vSeeds.push_back(CDNSSeedData("dashjr.org", "dnsseed.sunlightcoin.dashjr.org"));
-        //vSeeds.push_back(CDNSSeedData("sunlightcoinstats.com", "seed.sunlightcoinstats.com"));
-        //vSeeds.push_back(CDNSSeedData("bitnodes.io", "seed.bitnodes.io"));
-        //vSeeds.push_back(CDNSSeedData("xf2.org", "bitseed.xf2.org"));
 
         vSeeds.push_back(CDNSSeedData("47.110.65.186", "47.110.65.186"));
         vSeeds.push_back(CDNSSeedData("47.104.175.164", "47.104.175.164"));

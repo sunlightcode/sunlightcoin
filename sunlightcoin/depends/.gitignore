@@ -1,0 +1,7 @@
+SDKs/
+work/
+built/
+sources/
+config.site
+!sdk-sources/MacOSX10.7.sdk.tar.gz
+!sdk-sources/MacOSX10.9.sdk.tar.gz

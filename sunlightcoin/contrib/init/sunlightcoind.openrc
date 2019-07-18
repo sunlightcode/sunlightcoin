@@ -1,0 +1,86 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/sunlightcoin/.sunlightcoin" ]; then
+	SUNLIGHTCOIND_DEFAULT_DATADIR="/var/lib/sunlightcoin/.sunlightcoin"
+else
+	SUNLIGHTCOIND_DEFAULT_DATADIR="/var/lib/sunlightcoind"
+fi
+
+SUNLIGHTCOIND_CONFIGFILE=${SUNLIGHTCOIND_CONFIGFILE:-/etc/sunlightcoin/sunlightcoin.conf}
+SUNLIGHTCOIND_PIDDIR=${SUNLIGHTCOIND_PIDDIR:-/var/run/sunlightcoind}
+SUNLIGHTCOIND_PIDFILE=${SUNLIGHTCOIND_PIDFILE:-${SUNLIGHTCOIND_PIDDIR}/sunlightcoind.pid}
+SUNLIGHTCOIND_DATADIR=${SUNLIGHTCOIND_DATADIR:-${SUNLIGHTCOIND_DEFAULT_DATADIR}}
+SUNLIGHTCOIND_USER=${SUNLIGHTCOIND_USER:-sunlightcoin}
+SUNLIGHTCOIND_GROUP=${SUNLIGHTCOIND_GROUP:-sunlightcoin}
+SUNLIGHTCOIND_BIN=${SUNLIGHTCOIND_BIN:-/usr/bin/sunlightcoind}
+
+name="Sunlightcoin Core Daemon"
+description="Sunlightcoin crypto-currency p2p network daemon"
+
+command="/usr/bin/sunlightcoind"
+command_args="-pid=\"${SUNLIGHTCOIND_PIDFILE}\" \
+		-conf=\"${SUNLIGHTCOIND_CONFIGFILE}\" \
+		-datadir=\"${SUNLIGHTCOIND_DATADIR}\" \
+		-daemon \
+		${SUNLIGHTCOIND_OPTS}"
+
+required_files="${SUNLIGHTCOIND_CONFIGFILE}"
+start_stop_daemon_args="-u ${SUNLIGHTCOIND_USER} \
+			-N ${SUNLIGHTCOIND_NICE:-0} -w 2000"
+pidfile="${SUNLIGHTCOIND_PIDFILE}"
+retry=60
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${SUNLIGHTCOIND_USER}:${SUNLIGHTCOIND_GROUP}" \
+	"${SUNLIGHTCOIND_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${SUNLIGHTCOIND_USER}:${SUNLIGHTCOIND_GROUP}" \
+	"${SUNLIGHTCOIND_PIDDIR}"
+
+	checkpath -f \
+	-o ${SUNLIGHTCOIND_USER}:${SUNLIGHTCOIND_GROUP} \
+	-m 0660 \
+	${SUNLIGHTCOIND_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${SUNLIGHTCOIND_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run sunlightcoind."
+		eerror "The setting must appear in ${SUNLIGHTCOIND_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Sunlightcoin Alert\"" \
+			"sunlightcloud@icloud.com"
+		eerror ""
+		return 1
+	fi
+}

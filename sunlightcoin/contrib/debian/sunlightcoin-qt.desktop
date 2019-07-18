@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Sunlightcoin
+Comment=Sunlightcoin P2P Cryptocurrency
+Comment[fr]=Sunlightcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Sunlightcoin, eşten eşe kriptografik sanal para birimi
+Exec=sunlightcoin-qt %u
+Terminal=false
+Type=Application
+Icon=sunlightcoin128
+MimeType=x-scheme-handler/sunlightcoin;
+Categories=Office;Finance;

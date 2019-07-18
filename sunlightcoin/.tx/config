@@ -1,7 +1,0 @@
-[main]
-host = https://www.transifex.com
-
-[sunlightcoin.qt-translation-010x]
-file_filter = src/qt/locale/sunlightcoin_<lang>.ts
-source_file = src/qt/locale/sunlightcoin_en.ts
-source_lang = en

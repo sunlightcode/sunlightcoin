@@ -7,3 +7,27 @@ SunlightChain 是公有区块链，任何人均可参与 SunlightCoin 的发展�
 How much is the STC value? First, the wallet system developed by STC includes: Windows, Linux, MacOS, Android, IOS. The development language includes .NET, C, HTML5, Object C, Python, and the related research and development costs are related to these, and the blockchain technology learning cost is not included. In addition, STC has been operating stably for 39 weeks to generate 5E STC related electricity and equipment costs.
 At present, the nodes are all over China, the United States, Canada, Japan, Germany, the United Kingdom, South Korea and other places.
 
+## How to compile SunlightCoin
+###Ubuntu 14.04
+####下载源码
+（1）sudo apt-get update
+（2）apt-get install git
+（3）git clone https://gitee.com/sunlightcode/sunlightcoin.git
+
+####配置环境
+（1）sudo apt-get upgrade
+（2）sudo apt-get install make gcc g++
+（3）sudo apt-get install pkg-config
+（4）sudo apt-get install libdb-dev libdb++-dev libboost-dev zlib1g-dev libssl-dev build-essential libminiupnpc-dev autoconf libevent-dev libzmq3-dev libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqrencode-dev libtool libboost-all-dev
+
+####编译代码
+（1）export CXXFLAGS=-std=c++11
+（2）./autogen.sh
+（3） ./configure -without-gui --with-incompatible-bdb
+（4）make
+（5）make install
+
+####运行服务
+（1）sunlightcoind  -conf=/mnt/.sunlightcoin/sunlightcoin.conf  -datadir=/mnt/.sunlightcoin/
+
+

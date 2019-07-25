@@ -45,7 +45,7 @@ SLC 值多少钱，首先 SLC 研发的钱包系统包含：Windows，Linux，Ma
 #### Configuration
 1. brew install automake berkeley-db4 libtool boost --c++11 miniupnpc openssl pkg-config protobuf qt libevent python3
 
-#### Run
+#### Compile
 1. export LDFLAGS=-L/usr/local/opt/openssl/lib
 2. export CPPFLAGS=-I/usr/local/opt/openssl/include 
 3. export CXXFLAGS=-std=c++11
@@ -53,4 +53,7 @@ SLC 值多少钱，首先 SLC 研发的钱包系统包含：Windows，Linux，Ma
 5. ./configure 
 6. make
 7. make install
+
+#### Run
+1. sunlightcoin-qt
 

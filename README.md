@@ -35,3 +35,22 @@ SLC 值多少钱，首先 SLC 研发的钱包系统包含：Windows，Linux，Ma
 #### Run
 1. sunlightcoind  -conf=/mnt/.sunlightcoin/sunlightcoin.conf  -datadir=/mnt/.sunlightcoin/
 
+### Mac OS X
+#### Download
+1. xcode-select --install
+2. ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 
+3. brew install git
+4. git clone https://gitee.com/sunlightcode/sunlightcoin.git
+
+#### Configuration
+1. brew install automake berkeley-db4 libtool boost --c++11 miniupnpc openssl pkg-config protobuf qt libevent python3
+
+#### Run
+1. export LDFLAGS=-L/usr/local/opt/openssl/lib
+2. export CPPFLAGS=-I/usr/local/opt/openssl/include 
+3. export CXXFLAGS=-std=c++11
+4. ./autogen.sh
+5. ./configure 
+6. make
+7. make install
+

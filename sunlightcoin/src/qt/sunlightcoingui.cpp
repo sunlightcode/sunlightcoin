@@ -102,7 +102,7 @@ SunlightcoinGUI::SunlightcoinGUI(const NetworkStyle *networkStyle, QWidget *pare
 {
     GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
 
-    QString windowTitle = tr("Sunlightcoin Core") + " - ";
+    QString windowTitle = tr("Sunlightcoin Core") + " - LP ";
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
     enableWallet = !GetBoolArg("-disablewallet", false);
@@ -374,35 +374,42 @@ void SunlightcoinGUI::createMenuBar()
     QMenu *file = appMenuBar->addMenu(tr("&File"));
     if(walletFrame)
     {
-        // file->addAction(openAction);
+        file->addAction(openAction);
         file->addAction(backupWalletAction);
-        // file->addAction(signMessageAction);
-        // file->addAction(verifyMessageAction);
-        // file->addSeparator();
-        // file->addAction(usedSendingAddressesAction);
-        // file->addAction(usedReceivingAddressesAction);
+        file->addSeparator();
+        file->addAction(usedSendingAddressesAction);
+        file->addAction(usedReceivingAddressesAction);
         file->addSeparator();
     }
     file->addAction(quitAction);
+    
+    
+    QMenu *settings = appMenuBar->addMenu(tr("&Settings"));
+    
+    if(walletFrame)
+    {
+        //settings->addAction(encryptWalletAction);
+        //settings->addAction(changePassphraseAction);
+        //settings->addSeparator();
 
-    // QMenu *settings = appMenuBar->addMenu(tr("&Settings"));
-    // if(walletFrame)
-    // {
-    //     // settings->addAction(encryptWalletAction);
-    //     // settings->addAction(changePassphraseAction);
-    //     // settings->addSeparator();
-    // }
-    // settings->addAction(optionsAction);
+        settings->addAction(signMessageAction);
+        settings->addAction(verifyMessageAction);
+    }
+    
+    //settings->addAction(optionsAction);
 
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
-    // if(walletFrame)
-    // {
-    //     help->addAction(openRPCConsoleAction);
-    // }
-    // help->addAction(showHelpMessageAction);
-    // help->addSeparator();
+    /*
+    if(walletFrame)
+    {
+        help->addAction(openRPCConsoleAction);
+    }
+
+    help->addAction(showHelpMessageAction);
+    help->addSeparator();
+    */
     help->addAction(aboutAction);
-    // help->addAction(aboutQtAction);
+    //help->addAction(aboutQtAction);
 }
 
 void SunlightcoinGUI::createToolBars()
@@ -415,7 +422,7 @@ void SunlightcoinGUI::createToolBars()
         toolbar->addAction(sendCoinsAction);
         toolbar->addAction(receiveCoinsAction);
         toolbar->addAction(historyAction);
-        // toolbar->addAction(openRPCConsoleAction);
+        //toolbar->addAction(openRPCConsoleAction);
         overviewAction->setChecked(true);
     }
 }
@@ -538,15 +545,15 @@ void SunlightcoinGUI::createTrayIconMenu()
 
     // Configuration of the tray icon (or dock icon) icon menu
     trayIconMenu->addAction(toggleHideAction);
-    // trayIconMenu->addSeparator();
-    // trayIconMenu->addAction(sendCoinsMenuAction);
-    // trayIconMenu->addAction(receiveCoinsMenuAction);
-    // trayIconMenu->addSeparator();
-    // trayIconMenu->addAction(signMessageAction);
-    // trayIconMenu->addAction(verifyMessageAction);
-    // trayIconMenu->addSeparator();
-    // trayIconMenu->addAction(optionsAction);
-    // trayIconMenu->addAction(openRPCConsoleAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(sendCoinsMenuAction);
+    trayIconMenu->addAction(receiveCoinsMenuAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(signMessageAction);
+    trayIconMenu->addAction(verifyMessageAction);
+    //trayIconMenu->addSeparator();
+    //trayIconMenu->addAction(optionsAction);
+    //trayIconMenu->addAction(openRPCConsoleAction);
 #ifndef Q_OS_MAC // This is built-in on Mac
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(quitAction);

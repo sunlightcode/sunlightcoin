@@ -1,6 +1,0 @@
-usr/local/bin/sunlightcoin-qt usr/bin
-share/pixmaps/sunlightcoin32.xpm usr/share/pixmaps
-share/pixmaps/sunlightcoin16.xpm usr/share/pixmaps
-share/pixmaps/sunlightcoin128.png usr/share/pixmaps
-debian/sunlightcoin-qt.desktop usr/share/applications
-debian/sunlightcoin-qt.protocol usr/share/kde4/services/

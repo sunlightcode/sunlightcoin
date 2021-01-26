@@ -1,0 +1,14 @@
+Searching 1144 files for "v2.0" (case sensitive, whole word)
+
+0 matches
+
+Searching 1144 files for "v3.0" (case sensitive, whole word)
+
+/Users/hairuowang/Documents/2SunlightCoin/SunlightCoin/sunlightcoin/sunlightcoin/Windows & Mac/sunlightcoin3/src/qt/utilitydialog.cpp:
+   32      GUIUtil::restoreWindowGeometry("nHelpMessageDialogWindow", this->size(), this);
+   33  
+   34:     QString version = tr("SunlightCoin Core") + " " + tr("version") + " " + "v3.0";// QString::fromStdString(FormatFullVersion());
+   35      /* On x86 add a bit specifier to the version so that users can distinguish between
+   36       * 32 and 64 bit builds. On other architectures, 32/64 bit may be more ambigious.
+
+1 match in 1 file

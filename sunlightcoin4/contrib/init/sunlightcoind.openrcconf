@@ -1,0 +1,27 @@
+# /etc/conf.d/sunlightcoind: config file for /etc/init.d/sunlightcoind
+
+# Config file location
+#SUNLIGHTCOIND_CONFIGFILE="/etc/sunlightcoin/sunlightcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $SUNLIGHTCOIND_USER)
+#SUNLIGHTCOIND_PIDDIR="/var/run/sunlightcoind"
+
+# What filename to give the pidfile
+#SUNLIGHTCOIND_PIDFILE="${SUNLIGHTCOIND_PIDDIR}/sunlightcoind.pid"
+
+# Where to write sunlightcoind data (be mindful that the blockchain is large)
+#SUNLIGHTCOIND_DATADIR="/var/lib/sunlightcoind"
+
+# User and group to own sunlightcoind process
+#SUNLIGHTCOIND_USER="sunlightcoin"
+#SUNLIGHTCOIND_GROUP="sunlightcoin"
+
+# Path to sunlightcoind executable
+#SUNLIGHTCOIND_BIN="/usr/bin/sunlightcoind"
+
+# Nice value to run sunlightcoind under
+#SUNLIGHTCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+SUNLIGHTCOIND_OPTS="-disablewallet"
+

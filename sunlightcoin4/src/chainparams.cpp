@@ -185,9 +185,7 @@ public:
         //vSeeds.push_back(CDNSSeedData("bitnodes.io", "seed.bitnodes.io"));
         //vSeeds.push_back(CDNSSeedData("xf2.org", "bitseed.xf2.org"));
 
-        vSeeds.push_back(CDNSSeedData("47.104.240.222", "47.104.240.222"));
-        vSeeds.push_back(CDNSSeedData("47.105.92.50", "47.105.92.50"));
-        vSeeds.push_back(CDNSSeedData("107.180.90.202", "107.180.90.202"));
+        vSeeds.push_back(CDNSSeedData("39.106.165.185", "39.106.165.185"));
 
         base58Prefixes[PUBKEY_ADDRESS] = {63}; // S prefix
         base58Prefixes[SCRIPT_ADDRESS] = {35}; // L prefix
@@ -200,7 +198,7 @@ public:
         fRequireRPCPassword = true;
         fMiningRequiresPeers = true; // See SunlightcoinMiner() for details.
         fDefaultCheckMemPool = false;
-        fAllowMinDifficultyBlocks = true; // for test net, if hard to mine for a long time, then use the minimum difficulty.
+        //fAllowMinDifficultyBlocks = true; // for test net, if hard to mine for a long time, then use the minimum difficulty.
         fRequireStandard = true;
         fMineBlocksOnDemand = false; // for regression test net.
         fSkipProofOfWorkCheck = false;
